@@ -121,7 +121,7 @@ function Home() {
 
 function App() {
   return (
-    <Router basename="/ghpages/">
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
