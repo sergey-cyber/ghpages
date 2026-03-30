@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
+import heroImg from "./assets/hero.png";
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+function Home() {
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -115,7 +116,25 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router basename="/ghpages/">
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+function Admin() {
+  return <h1>Admin</h1>;
+}
+
+export default App;
