@@ -3,7 +3,12 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  NavLink,
+} from "react-router-dom";
 
 function Home() {
   const [count, setCount] = useState(0);
@@ -31,6 +36,7 @@ function Home() {
       </section>
 
       <div className="ticks"></div>
+      <NavLink to={"/admin"}>Admin</NavLink>
 
       <section id="next-steps">
         <div id="docs">
@@ -121,7 +127,7 @@ function Home() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/ghpages">
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
